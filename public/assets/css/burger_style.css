@@ -1,0 +1,75 @@
+/* Body Styles */
+body {
+    font-family: 'Concert One', cursive;
+    background-image: url("/assets/img/burger-tile.jpg");
+    color: #BD2325;
+    font-size: 2.25em;
+}
+
+/* Layout Styles */
+.jumbotron {
+    padding: 1.5em;
+    background-color: #D0CE30;
+    margin-bottom: .25em;
+}
+
+h2, h4 {
+    background-color: #D7FAE3;
+    background-color: #D0CE30;
+    padding: .5em;
+}
+
+img {
+    width: 20%;
+}
+
+/* List Styles */
+ul {
+    list-style: none;
+}
+
+li {
+    padding: .5em;
+    margin: .5em .5em .5em 0;
+    background-color: #D0CE30;
+}
+
+/* Button and Form Styles */
+.btn-devour {
+    background-color: #D0CE30;
+}
+
+.btn-devour:hover {
+    background-color: #0ED53B;
+}
+  
+.form-group {
+    margin-bottom: 5px;
+}
+
+#burger {
+    padding: 1em;
+    width: 100%;
+    font-size: 2em;
+    margin-bottom: .2em;
+}
+
+.btn-danger {
+    display: block;
+    width: 10em;
+    background-color: #BD2325;
+    margin-left: 8em;
+}
+
+.btn-danger:hover {
+    color: #D0CE30;
+}
+
+/* Media Queries */
+@media screen and (max-width: 980px) {
+    .btn-danger {
+        margin-left: 15em;
+    }
+}
+
+
