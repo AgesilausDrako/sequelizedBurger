@@ -3,27 +3,29 @@ var express = require("express");
 var router = express.Router();
 
 // Import the model (burger.js) to use its database functions.
-var burger = require("../models/burger.js");
+var db = require("../models");
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
-  burger.selectAll(function(data) {
-    var hbsObject = {
-      burgers: data
-    };
-    console.log(hbsObject);
-    res.render("index", hbsObject);
+  db.Burger.findAll({}).then(function(dbBurger) {
+    // We have access to the todos as an argument inside of the callback function
+    res.render("index", dbBurger);
   });
 });
 
 router.post("/", function(req, res) {
-  burger.insertOne([
-    "burger_name"
-  ], [
-    req.body.burger_name
-  ], function() {
-    res.redirect("/");
-  });
+    db.Burger.create({
+      burger_name: req.body.burger_name,
+      devoured: req.body.devoured
+    }).then(function(dbBurger) {
+      // We have access to the new todo as an argument inside of the callback function
+      res.render(dbBurger);
+    })
+    .catch(function(err) {
+      // Whenever a validation or flag fails, an error is thrown
+      // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+      res.json(err);
+    });
 });
 
 router.put("/:id", function(req, res) {
@@ -31,11 +33,20 @@ router.put("/:id", function(req, res) {
 
   console.log("condition", condition);
 
-  burger.updateOne({
-    devoured: req.body.devoured
-  }, condition, function() {
-    res.redirect("/");
-  });
+  db.Burger.update({
+      devoured: req.body.devoured
+    }, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(dbBurger) {
+      res.json(dbBurger);
+    })
+    .catch(function(err) {
+      // Whenever a validation or flag fails, an error is thrown
+      // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+      res.json(err);
+    });
 });
 
 // Export routes for server.js to use.

@@ -7,7 +7,7 @@
     <div class="row">
         <ul class="col-md-4 col-md-offset-1">
         <h2 class="text-center">Burgers to eat</h2>
-        {{#each burgers}}
+        {{#each Burgers}}
             {{#unless this.devoured}}
             <li>
                 {{this.id}}  {{this.burger_name}}         
@@ -22,7 +22,7 @@
 
         <ul class="col-md-4 col-md-offset-2">
         <h2 class="text-center">Burgers already eaten</h2>
-        {{#each burgers}}
+        {{#each Burgers}}
             {{#if this.devoured}}
             <li>
                 {{this.id}}  {{this.burger_name}}
