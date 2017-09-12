@@ -17,9 +17,9 @@ router.post("/", function(req, res) {
     db.Burger.create({
       burger_name: req.body.burger_name,
       devoured: req.body.devoured
-    }).then(function(dbBurger) {
+    }).then(function() {
       // We have access to the new todo as an argument inside of the callback function
-      res.render(dbBurger);
+      res.redirect("/");
     })
     .catch(function(err) {
       // Whenever a validation or flag fails, an error is thrown
@@ -39,8 +39,8 @@ router.put("/:id", function(req, res) {
       where: {
         id: req.body.id
       }
-    }).then(function(dbBurger) {
-      res.json(dbBurger);
+    }).then(function() {
+      res.redirect("/");
     })
     .catch(function(err) {
       // Whenever a validation or flag fails, an error is thrown
