@@ -9,12 +9,7 @@ module.exports = function(sequelize, DataTypes) {
       },
         devoured: {
         type: DataTypes.BOOLEAN,
-        defaultValue: false,
-        set: function(value) {
-          if (value === 'true') value = true;
-          if (value === 'false') value = false;
-          this.setDataValue('devoured', value);
-        }
+        defaultValue: false
       }
     });
     return Burger;
