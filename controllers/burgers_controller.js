@@ -7,9 +7,16 @@ var db = require("../models");
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
-  db.Burger.findAll({}).then(function(dbBurger) {
-    // We have access to the todos as an argument inside of the callback function
-    res.render("index", dbBurger);
+  // db.Burger.findAll({}).then(function(dbBurgers) {
+  //   // We have access to the todos as an argument inside of the callback function
+  //   res.render("index", dbBurgers);
+  // });
+  db.Burger.findAll({}).then(function(data) {
+    var hbsObject = {
+      Burgers: data
+    };
+    console.log(hbsObject);
+    res.render("index", hbsObject);
   });
 });
 
@@ -29,9 +36,6 @@ router.post("/", function(req, res) {
 });
 
 router.put("/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
-
-  console.log("condition", condition);
 
   db.Burger.update({
       devoured: req.body.devoured
