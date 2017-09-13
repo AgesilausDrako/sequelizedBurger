@@ -41,7 +41,7 @@ router.put("/:id", function(req, res) {
       devoured: req.body.devoured
     }, {
       where: {
-        id: req.body.id
+        id: req.params.id
       }
     }).then(function() {
       res.redirect("/");
