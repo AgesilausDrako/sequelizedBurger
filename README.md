@@ -1,7 +1,7 @@
 # Eat Da Burger: The Sequel
 
 ## Demonstration on Heroku
-A fully functional version of this application can be viewed at: [link to Demonstration!](https://floating-taiga-97060.herokuapp.com/)
+A fully functional version of this application can be viewed at: [link to Demonstration!](https://boiling-everglades-81488.herokuapp.com/)
 
 ## Description
  Eat Da Burger: The Sequel is a full-stack application, utilizing node.js, express.js, handlebars.js, mysql database, sequelize, to simulate ordering a burger and then devouring it. This application could easily be modified for commercial use for an ordering and order completion online application. Eat Da Burger allows the user to order from a prefilled list of burgers or add a specialty burger of their choosing. The application then adds the burger to the "Burgers to eat" column. Once a burger is "devoured" it is moved to the "Burgers already eaten" column. All of the data is stored and updated in the mysql database.
